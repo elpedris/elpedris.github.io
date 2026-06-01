@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associació El Pedrís - Cuidar el col·lectiu, construir comunitat</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #2b3a22;
+            background-color: #fafbfc;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navbar */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e6ecd9;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .nav-container {
+            display: table;
+            width: 100%;
+        }
+        nav .logo {
+            display: table-cell;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #1b3b0a;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+        nav .menu {
+            display: table-cell;
+            text-align: right;
+            vertical-align: middle;
+        }
+        nav .menu a {
+            color: #4a5d3e;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav .menu a:hover {
+            color: #1b3b0a;
+        }
+
+        /* Hero Section */
+        header {
+            background-color: #e2ecc8;
+            padding: 80px 0;
+            text-align: center;
+        }
+        header .subtitle-top {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #4a5d3e;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            color: #1b3b0a;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        header p {
+            font-size: 1.15rem;
+            color: #3d4f33;
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #214a11;
+            color: #ffffff;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #17350c;
+        }
+
+        /* Section generic styles */
+        section {
+            padding: 80px 0;
+        }
+        .section-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #728c60;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #1b3b0a;
+            margin-bottom: 30px;
+        }
+
+        /* Qui som Section */
+        #quisom {
+            background-color: #ffffff;
+        }
+        .two-columns {
+            width: 100%;
+            display: table;
+        }
+        .col-text {
+            display: table-cell;
+            width: 55%;
+            padding-right: 40px;
+            vertical-align: top;
+        }
+        .col-text p {
+            margin-bottom: 20px;
+            color: #4a5542;
+            font-size: 1.05rem;
+        }
+        .col-grid {
+            display: table-cell;
+            width: 45%;
+            vertical-align: top;
+        }
+        .card-mini-row {
+            margin-bottom: 15px;
+        }
+        .card-mini {
+            background-color: #f1f6e9;
+            border: 1px solid #d4dfc3;
+            border-radius: 12px;
+            padding: 20px;
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 2%;
+        }
+        .card-mini:nth-child(2n) {
+            margin-right: 0;
+        }
+        .card-mini h3 {
+            font-size: 1.1rem;
+            color: #1b3b0a;
+            margin-bottom: 8px;
+        }
+        .card-mini p {
+            font-size: 0.85rem;
+            color: #5c6b52;
+        }
+
+        /* activitats Section */
+        #activitats {
+            background-color: #f6f9f1;
+            border-top: 1px solid #edf2e5;
+            border-bottom: 1px solid #edf2e5;
+        }
+        .activitats-row {
+            width: 100%;
+        }
+        .card-activitats {
+            background-color: #ffffff;
+            border: 1px solid #e1edd6;
+            border-radius: 16px;
+            padding: 30px;
+            width: 31.33%;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 2%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .card-formacio:last-child {
+            margin-right: 0;
+        }
+        .icon-badge {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .card-formacio h3 {
+            font-size: 1.25rem;
+            color: #1b3b0a;
+            margin-bottom: 12px;
+        }
+        .card-formacio p {
+            font-size: 0.95rem;
+            color: #5c6b52;
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+        .badge-hours {
+            display: inline-block;
+            background-color: #f1f6e9;
+            color: #4a6639;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Efecte Papallona Section */
+        #papallona {
+            background-color: #ffffff;
+        }
+        .card-papallona {
+            background-color: #f9fbf7;
+            border: 1px solid #d4dfc3;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.03);
+        }
+        .award-badge {
+            display: inline-block;
+            background-color: #dfeed4;
+            color: #1b3b0a;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-papallona .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .card-papallona h3 {
+            font-size: 1.6rem;
+            color: #144f23;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .card-papallona p {
+            font-size: 1.05rem;
+            color: #5c6b52;
+            line-height: 1.6;
+        }
+
+        /* Contacte Section */
+        #contacte {
+            background-color: #f6f9f1;
+            border-top: 1px solid #edf2e5;
+        }
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #214a11;
+            font-weight: 600;
+        }
+        .contact-info a {
+            color: #214a11;
+            text-decoration: none;
+            border-bottom: 1px dashed #214a11;
+        }
+        .contact-info a:hover {
+            color: #17350c;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #3d4f33;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd6be;
+            background-color: #ffffff;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #2b3a22;
+            font-family: inherit;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #214a11;
+            box-shadow: 0 0 0 3px rgba(33, 74, 17, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1b3b0a;
+            color: #e2ecc8;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer p {
+            opacity: 0.8;
+        }
+            /* Estils per al preview del vídeo */
+        .video-preview-box {
+            display: block;
+            margin: 30px auto 0;
+            max-width: 320px;
+            text-decoration: none;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #cbd6be;
+            background-color: #ffffff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .video-preview-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+            border-color: #a4b593;
+        }
+        .video-thumbnail {
+            background-color: #dbe4ce;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .play-button {
+            background-color: rgba(27, 59, 10, 0.85);
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            padding-left: 5px; /* Centra el triangle visualment */
+            transition: background-color 0.2s;
+        }
+        .video-preview-box:hover .play-button {
+            background-color: rgba(27, 59, 10, 1);
+            transform: scale(1.05);
+        }
+        .video-text {
+            padding: 15px;
+            color: #1b3b0a;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de navegació -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">El Pedrís, Cultura de Pau i Resiliència Comunitària</a>
+            <div class="menu">
+                <a href="#quisom">Qui som</a>
+                <a href="#papallona">Efecte Papallona</a>
+                <a href="#activitats">Activitats</a>
+                <a href="#contacte">Contacte</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero / Inici -->
+    <header>
+        <div class="container" style="text-align: center;">
+            <div style="font-size: 1.4rem; font-weight: 700; color: #1b3b0a; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">El Pedrís</div>
+            <div class="subtitle-top" style="margin-bottom: 30px;">Associació sense ànim de lucre</div>
+            
+            <h1 style="margin-top: 0; line-height: 1.2; margin-bottom: 20px;">Cuidar el col·lectiu,<br>construir comunitat</h1>
+            <p style="margin-bottom: 30px; color: #4a5542;">Creem espais per créixer juntes, dialogar, i teixir resiliència</p>
+            
+            <a href="#formacions" class="btn" style="margin-bottom: 50px;">Descobreix les activitats</a>
+            
+            <!-- Imatge principal (Hero image) -->
+            <div style="margin-top: 10px;">
+                <img src="entorn.jpg" alt="Entorn d'El Pedrís" style="width: 100%; max-height: 450px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </header>
+
+    <!-- Secció Qui Som -->
+    <section id="quisom">
+        <div class="container">
+            <div class="two-columns">
+                <div class="col-text">
+                    <div class="section-tag">Qui som</div>
+                    <h2>Un espai per al que és comú</h2>
+                    <p>Som <strong>El Pedrís</strong>, una associació sense ànim de lucre nascuda de la convicció que les comunitats sanes transformen el món. Acompanyem persones i grups amb eines per al diàleg, la cura mútua i l'acció col·lectiva.</p>
+                    <p>Creiem que la nostra capacitat d'adquirir resiliència comença per aprendre a escoltar-nos, a gestionar els conflictes i a prendre decisions col·laborativament. Recordant que la nostra salut va lligada a la salut dels nostres ecosistemes, necessitem trobar equilibris que ens permetin un <strong>futur saludable per nosaltres i els nostres fills i filles</strong>.
+                    <!-- Foto de l'entorn -->
+                     <img src="grup.jpg" alt="Entorn del Pedrís del Montsant" style="width: 100%; height: auto; border-radius: 16px; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); object-fit: cover;"></p>
+                </div>
+                <div class="col-grid">
+                    <div style="padding-top: 45px;">
+                        <div class="card-mini-row">
+                            <div class="card-mini">
+                                <h3>🦋 Transformació</h3>
+                                <p>Petits canvis que s'escampen com papallones.</p>
+                            </div>
+                            <div class="card-mini">
+                                <h3>🌱 Arrelament</h3>
+                                <p>Processos que creixen des de la terra.</p>
+                            </div>
+                        </div>
+                        <div class="card-mini-row">
+                            <div class="card-mini">
+                                <h3>🔵 Cercles</h3>
+                                <p>La saviesa viu en els cercles, facilitem espais de diàleg.</p>
+                            </div>
+                            <div class="card-mini">
+                                <h3>🤝 Cura mútua</h3>
+                                <p>Ningú creix sol. La comunitat és la xarxa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secció Efecte Papallona -->
+    <section id="papallona">
+        <div class="container" style="text-align: center;">
+            <div class="section-tag">Projecte destacat</div>
+            <h2 style="margin-bottom: 40px;">Efecte Papallona</h2>
+            
+            <div class="card-papallona">
+                <div style="text-align: center;">
+                    <div class="award-badge">🏆 Guardonat amb el Premi Eixarcolant 2026</div>
+                </div>
+                <div class="icon">🦋</div>
+                <h3>Refugi de Papallones</h3>
+                <p>Volem recolzar i afavorir la construcció de comunitats més adaptatives i resilients. Les papallones com a bioindicadores de canvi climàtic ens ofereixen una oportunitat única per explorar camins de transformació personal i comunitària. <strong>Creem Efecte Papallona,</strong> sumem el nostre humil batec d'ales al de moltes altres per la resiliència col·lectiva.</p>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; margin-top: 20px; border: 1px solid #cbd6be; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <iframe src="https://drive.google.com/file/d/1bYDbdVQsYt51DbB2uwV_vhrVfmbL53wB/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Secció Activitats -->
+    <section id="activitats">
+        <div class="container">
+            <div class="section-tag">Activitats</div>
+            <h2>Aprendre fent comunitat</h2>
+            <p style="margin-bottom: 40px; color: #4a5542; max-width: 700px;">Les activitats son espais de pràctica, reflexió i connexió. Presencials i participativess.</p>
+           <div class="activitats-row" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div class="card-activitats" style="flex: 1 1 calc(50% - 20px); margin: 0; min-width: 250px;">
+                    <div class="icon-badge">🗣️</div>
+                    <h3>Comunicació No Violenta</h3>
+                    <p>Eines per expressar-nos des de les necessitats i escoltar l'altre amb empatia profunda. Un canvi de llengua interior i exterior.</p>
+                    <span class="badge-hours">Taller · 8h</span>
+                </div>
+                <div class="card-activitats" style="flex: 1 1 calc(50% - 20px); margin: 0; min-width: 250px;">
+                    <div class="icon-badge">⭕</div>
+                    <h3>Justícia Restaurativa</h3>
+                    <p>Pràctiques de justícia restaurativa per sanar conflictes, enfortir els vincles i la connexió en la comunitat. Espais de conversa profunda on les veus diverses poden ser escoltades.</p>
+                    <span class="badge-hours">Formació · 20h</span>
+                </div>
+                <div class="card-activitats" style="flex: 1 1 calc(50% - 20px); margin: 0; min-width: 250px;">
+                    <div class="icon-badge">🌀</div>
+                    <h3>Facilitació de Grups</h3>
+                    <p>Aprèn a acompanyar processos col·lectius: dinamització, presa de decisions i gestió de la complexitat grupal.</p>
+                    <span class="badge-hours">Formació · 12h</span>
+                </div>
+                <!-- Nova targeta: Laboratoris Ciutadans amb enllaç a RILCC -->
+                <div class="card-activitats" style="flex: 1 1 calc(50% - 20px); margin: 0; min-width: 250px;">
+                    <div class="icon-badge">🏘️</div>
+                    <h3>Laboratoris Ciutadans</h3>
+                    <p>Espais d'experimentació i creació col·lectiva per posar en valor el nostre entorn i reimaginar el territori. Un exemple viu és el laboratori <a href="https://rilcc.net/laboratorio/la-v-bellesa-a-ulldemolins/" target="_blank" style="color: #214a11; font-weight: 600; text-decoration: underline;">"La Bellesa d'Ulldemolins"</a>, projecte que pertany a la xarxa de la RILCC.</p>
+                    <span class="badge-hours">Projecte comunitari</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secció Contacte -->
+    <section id="contacte">
+        <div class="container">
+            <div class="contact-container">
+                <div class="section-tag" style="text-align: center;">Contacte</div>
+                <h2 style="text-align: center;">Parlem</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: #4a5542;">Si vols participar en una formació, organitzar un taller per al teu grup o simplement saber més, escriu-nos. Respondrem de pressa.</p>
+
+                <div class="contact-info">
+                    📧 <a href="mailto:elpedrisculturadepau@gmail.com">elpedrisculturadepau@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peu de pàgina -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Associació El Pedrís Cultura de Pau i Resiliència Comunitària. Tots els drets reservats.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Cuidar el col·lectiu, construir comunitat.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
