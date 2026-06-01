@@ -377,40 +377,48 @@
             gap: 8px;
         }
         /* Ajustaments automàtics per a pantalles de mòbil */
+/* Ajustaments automàtics per a pantalles de mòbil */
 @media (max-width: 768px) {
+    /* 1. Ajustem l'espai general */
     .container {
         width: 100% !important;
         padding-left: 20px !important;
         padding-right: 20px !important;
         box-sizing: border-box;
     }
-    
-    #quisom {
-        padding: 40px 0 !important; 
-    }
-    
-    #quisom p {
-        font-size: 16px !important; 
-        line-height: 1.6 !important;
-        text-align: left !important; 
-    }
-    
-    /* SOLUCIÓ A LES COLUMNES OFEGADES */
-    /* 1. Obliguem a la caixa principal a posar els elements en vertical (column) */
-    #quisom div[style*="display: flex"],
-    #quisom .container > div {
+
+    /* 2. Trenquem les columnes principals perquè s'apilin (text dalt, targetes baix) */
+    .two-columns {
         display: flex !important;
         flex-direction: column !important;
-        gap: 40px !important; /* Espai bonic entre el text i les targetetes */
+        gap: 40px !important;
     }
-    
-    /* 2. Forcem que tant la part del text com la de les targetes ocupin el 100% de l'ample */
-    #quisom div[style*="flex: 1"],
-    #quisom div[style*="flex:1"] {
+
+    /* 3. Assegurem que cada bloc ocupi tot l'ample de la pantalla */
+    .col-text, .col-grid {
         width: 100% !important;
         max-width: 100% !important;
-        min-width: 100% !important;
         margin: 0 !important;
+    }
+
+    /* 4. Eliminem l'espai superior (padding) que empenyia les targetes cap a baix */
+    .col-grid > div {
+        padding-top: 0 !important;
+    }
+
+    /* 5. Apilem també les targetes petites perquè no quedin ofegades de costat */
+    .card-mini-row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 6. Ajustem l'amplada de les targetes al 100% de la pantalla */
+    .card-mini {
+        width: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box;
     }
 }
     </style>
