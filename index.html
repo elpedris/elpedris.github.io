@@ -420,6 +420,13 @@
         margin: 0 !important;
         box-sizing: border-box;
     }
+    /* 7. Ajustem el vídeo o la seva miniatura perquè no sobresurti */
+    iframe, .video, .miniatura-video {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important; /* Manté la proporció rectangular perfecta */
+        max-width: 100% !important;
+    }
 }
     </style>
 </head>
